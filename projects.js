@@ -15,7 +15,7 @@ fetch("projects.json")
 function renderProjects(projects) {
   projects.forEach(p => {
     const el = document.createElement("div");
-    el.className = "border-b border-white/10 pb-10";
+    el.className = "project-divider pb-10";
 
     el.innerHTML = `
       <div class="flex justify-between items-start">
@@ -28,11 +28,6 @@ function renderProjects(projects) {
 
       <p class="mt-5 max-w-3xl opacity-80">${p.description}</p>
 
-      <div class="mt-4 flex flex-wrap gap-2">
-        ${(p.tags || []).map(t =>
-          `<span class="px-2 py-1 text-xs bg-white/10 rounded">${t}</span>`
-        ).join("")}
-      </div>
 
       ${p.github ? `<a class="inline-block mt-4 opacity-60 hover:opacity-100" href="${p.github}" target="_blank">GitHub</a>` : ""}
     `;

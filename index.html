@@ -19,7 +19,6 @@
       transform-origin: center center;
     }
 
-    /* hover color change on dark mode */
     .nav-project {
       color: rgba(255,255,255,0.7);
     }
@@ -27,7 +26,6 @@
       color: rgba(255,255,255,0.9); 
     }
 
-    /* hover color change on light mode */
     .light-mode .nav-project {
       color: rgba(0,0,0,0.7);
     }
@@ -36,7 +34,6 @@
       color: rgba(0,0,0,0.95); 
     }
 
-    /* Icon color toggle */
     .nav .icon-link img {
       filter: brightness(0) invert(1);
       opacity: 0.7;
@@ -50,30 +47,26 @@
     .light-mode .nav .icon-link img {
       filter: none;
     }
-    
-    
   </style>
 </head>
 
 <body id="page" class="bg-white text-black overflow-hidden light-mode">
   <main class="relative h-screen w-screen">
+
     <!-- Cat ears -->
-  <div class="earbar">
-    <pre id="ear-left" class="ear"></pre>
-    <pre id="ear-right" class="ear"></pre>
-  </div>
+    <div class="earbar">
+      <pre id="ear-left" class="ear"></pre>
+      <pre id="ear-right" class="ear"></pre>
+    </div>
 
+    <!-- Top navigation -->
+    <div class="nav absolute top-8 left-12 right-12 flex justify-between items-center text-[18px] text-white opacity-70">
 
-<!-- Top navigation -->
-  <div class="nav absolute top-8 left-12 right-12 flex justify-between items-center text-[18px] text-white opacity-70">
+      <span class="nav-project tracking-wide cursor-pointer transition"
+            onclick="window.location.href='projects.html'">
+        projects 
+      </span>
 
-    <!-- Left: Projects -->
-    <span class="nav-project tracking-wide cursor-pointer transition"
-          onclick="window.location.href='projects.html'">
-      projects 
-    </span>
-
-    <!-- Right: Social Icons -->
       <div class="flex gap-4 items-center">
         <a href="https://github.com/addritab" target="_blank" class="icon-link">
           <img src="github.svg" class="w-7 h-7" />
@@ -84,11 +77,7 @@
       </div>
     </div>
 
-
-  </div>
-
-
-    <!-- Cat wrapper (position knobs here) -->
+    <!-- Cat wrapper -->
     <div
       id="catWrap"
       class="absolute left-[60%] top-[45%] -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-[820px]"
@@ -96,26 +85,27 @@
       <pre id="trace"><span id="trace-chars"></span></pre>
     </div>
 
-    <!-- Bottom-left identity -->
-    <section class="idblock absolute left-12 bottom-16 max-w-[80vw] font-[Arial]">
-    <h1 class="text-[40px] leading-tight font-[Arial] font-light"> addrita biswas</h1>
-    <p class="mt-2 text-sm opacity-50">
-        addritaside [at] gmail [dot] com
+    <!-- bottom-left text -->
+  <section class="idblock absolute left-12 bottom-16 max-w-[80vw] font-[Arial]">
+    <h1 class="text-[38px] leading-tight font-light"> addrita biswas</h1>
+
+    <p class="mt-0 text-sm opacity-50">
+      addritaside [at] gmail [dot] com
     </p>
 
-    <!-- Grouped block -->
-    <p class="mt-4 text-sm opacity-70 underline decoration-dotted decoration-current/40 underline-offset-4">
-    swe, design, &amp; writing
+    <p class="mt-5 text-sm opacity-70 underline decoration-dotted decoration-current/40 underline-offset-4">
+      software engineering, design, &amp; writing
     </p>
 
-    <p class="mt-1 text-sm opacity-70">
-        student engineer alum @ google code next
+    <p class="mt-0.5 text-sm opacity-70">
+      student engineer alum @ <i>google code next</i>
     </p>
 
-    <p class="mt-1 text-sm opacity-70">
-        computer science @ sbu
+    <p class="mt-0.5 text-sm opacity-70">
+      computer science @ <i>stonybrook university</i>
     </p>
-    </section>
+  </section>
+
 
   </main>
 
@@ -127,10 +117,9 @@
     var dir = 'inc';
     var max = frames.length;
     var fps = 35;
-    var SCALE = 0.50; // changes anim size
+    var SCALE = 0.50;
     var isLight = true;
 
-    // sharp hover on anim
     pre.addEventListener("mouseenter", () => {
       pre.style.transform = "scale(1.01)";
     });
@@ -139,7 +128,6 @@
       pre.style.transform = "scale(1)";
     });
 
-    // dark and light mode toggle
     pre.addEventListener("click", () => {
       isLight = !isLight;
       localStorage.setItem("theme", isLight ? "light" : "dark");
@@ -149,7 +137,6 @@
       page.classList.toggle("bg-white", isLight);
       page.classList.toggle("text-white", !isLight);
       page.classList.toggle("text-black", isLight);
-      
     });
 
     setPreCharSize();

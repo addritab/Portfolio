@@ -17,6 +17,14 @@
     .light-mode .nav:hover {
     color: black; 
     }
+    
+    .project-divider {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10); /* dark mode divider */
+    }
+
+    .light-mode .project-divider {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10); /* light mode divider */
+    }
 
   </style>
 </head>
@@ -51,13 +59,13 @@
         <!-- Left ear -->
         <div class="w-1/2 overflow-hidden">
         <pre id="ear-left"
-            class="whitespace-pre font-mono text-[2px] leading-[1.3px] text-white"></pre>
+            class="whitespace-pre font-mono text-[3.5px] leading-[2px] text-white"></pre>
         </div>
 
         <!-- Right ear -->
         <div class="w-1/2 overflow-hidden text-right">
         <pre id="ear-right"
-            class="whitespace-pre font-mono text-[2px] leading-[1.3px] text-white"></pre>
+            class="whitespace-pre font-mono text-[3.5px] leading-[2px] text-white"></pre>
         </div>
     </div>
     </div>
@@ -78,7 +86,7 @@
   <script src="./leftEar.js"></script>
   <script src="./rightEar.js"></script>
   <script>
-    // expects: window.EAR_LEFT and window.EAR_RIGHT
+
     document.getElementById("ear-left").textContent = window.EAR_LEFT || "";
     document.getElementById("ear-right").textContent = window.EAR_RIGHT || "";
 

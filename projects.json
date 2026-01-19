@@ -4,14 +4,13 @@
     "org": "Google Code Next",
     "year": "2025",
     "description": "An ultra-minimal focus tracker, inspired by Notion’s simplicity but stripped down for daily productivity. Instead of managing long-term projects, Notifi keeps your day on track with just three core features: a streamlined checklist, an integrated lofi player, and a built-in Pomodoro timer.",
-    "tags": ["Python", "Numba", "JSON", "Bash", "CAD"],
-    "github": "https://github.com/yourrepo"
+    "github": "https://github.com/addritab/Notifi"
   },
   {
     "title": "Intellect",
     "org": "Congressional App Challenge 2024 Winner",
     "year": "2024",
-    "description": "Worked alongside a PhD student to study neural compositionality...",
-    "tags": ["Python", "PyTorch", "Matplotlib", "NumPy", "Linear Algebra"]
+    "description": "A college path and organizer website created for high school students. Features include a checklist that provides tips on what to accomplish/aim for each year in high school, resources for internships and learning, and allows users to create their own profile and allows organizer boxes.",
+    "github": "https://github.com/addritab/Intellect"
   }
 ]
