@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* If your ears have lots of whitespace, this prevents weird layout shifts */
+    pre { margin: 0; }
+
+    .light-mode .nav {
+    color: #6b7280;
+    }
+
+    .light-mode .nav:hover {
+    color: black; 
+    }
+
+  </style>
+</head>
+
+<body id="page" class="bg-[#131313] text-white">
+    <!-- THEME SYNC (matches whatever index.html saved in localStorage.theme) -->
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme") || "dark";
+        const page = document.getElementById("page");
+
+        if (theme === "light") {
+          page.classList.remove("bg-[#131313]", "text-white");
+          page.classList.add("bg-white", "text-black");
+        } else {
+          page.classList.remove("bg-white", "text-black");
+          page.classList.add("bg-[#131313]", "text-white");
+        }
+      })();
+    </script>
+
+    <a href="index.html"
+    class="nav absolute top-8 left-12 text-[18px] opacity-70 transition
+            text-white hover:text-white
+            light:text-black light:hover:text-gray-500">
+    &lt; back
+    </a>
+
+
+    <div class="fixed top-24 inset-x-0 pointer-events-none select-none z-50">
+    <div class="max-w-6xl ml-[480px] px-2 flex">
+        <!-- Left ear -->
+        <div class="w-1/2 overflow-hidden">
+        <pre id="ear-left"
+            class="whitespace-pre font-mono text-[2px] leading-[1.3px] text-white"></pre>
+        </div>
+
+        <!-- Right ear -->
+        <div class="w-1/2 overflow-hidden text-right">
+        <pre id="ear-right"
+            class="whitespace-pre font-mono text-[2px] leading-[1.3px] text-white"></pre>
+        </div>
+    </div>
+    </div>
+        </div>
+
+    <main class="relative z-10 max-w-5xl mx-auto px-10 pt-80 pb-24 translate-x-12">
+    <header class="mb-16">
+      <h1 class="text-3xl font-medium">dev / design</h1>
+      <p class="mt-3 opacity-60">
+        below are few of my side projects that i have created and personally designed (portfolio included)
+      </p>
+    </header>
+
+    <section id="projectsList" class="space-y-14"></section>
+  </main>
+
+  <!-- Your ears file -->
+  <script src="./leftEar.js"></script>
+  <script src="./rightEar.js"></script>
+  <script>
+    // expects: window.EAR_LEFT and window.EAR_RIGHT
+    document.getElementById("ear-left").textContent = window.EAR_LEFT || "";
+    document.getElementById("ear-right").textContent = window.EAR_RIGHT || "";
+
+    // keep ears color consistent with theme
+    const theme = localStorage.getItem("theme") || "dark";
+    if (theme === "light") {
+      document.getElementById("ear-left").classList.remove("text-white");
+      document.getElementById("ear-right").classList.remove("text-white");
+      document.getElementById("ear-left").classList.add("text-black");
+      document.getElementById("ear-right").classList.add("text-black");
+    } else {
+      document.getElementById("ear-left").classList.remove("text-black");
+      document.getElementById("ear-right").classList.remove("text-black");
+      document.getElementById("ear-left").classList.add("text-white");
+      document.getElementById("ear-right").classList.add("text-white");
+    }
+  </script>
+
+  <script src="projects.js"></script>
+</body>
+</html>

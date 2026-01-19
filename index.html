@@ -10,40 +10,83 @@
 
   <style>
     #trace {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    white-space: pre;
-    user-select: none;
-    text-align: left;
-    margin: 0;
-    cursor: pointer;
-    transform-origin: center center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre;
+      user-select: none;
+      text-align: left;
+      margin: 0;
+      cursor: pointer;
+      transform-origin: center center;
     }
 
-
-    .light-mode {
-      background: white;
-      color: black;
+    /* hover color change on dark mode */
+    .nav-project {
+      color: rgba(255,255,255,0.7);
+    }
+    .nav-project:hover {
+      color: rgba(255,255,255,0.9); 
     }
 
-    .light-mode #trace {
-      color: black;
+    /* hover color change on light mode */
+    .light-mode .nav-project {
+      color: rgba(0,0,0,0.7);
     }
 
-    .light-mode .nav,
-    .light-mode .idblock {
-      color: black;
+    .light-mode .nav-project:hover {
+      color: rgba(0,0,0,0.95); 
     }
+
+    /* Icon color toggle */
+    .nav .icon-link img {
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .nav .icon-link img:hover {
+      opacity: 1;
+    }
+
+    .light-mode .nav .icon-link img {
+      filter: none;
+    }
+    
+    
   </style>
 </head>
 
-<body id="page" class="bg-[#131313] text-white overflow-hidden">
+<body id="page" class="bg-white text-black overflow-hidden light-mode">
   <main class="relative h-screen w-screen">
+    <!-- Cat ears -->
+  <div class="earbar">
+    <pre id="ear-left" class="ear"></pre>
+    <pre id="ear-right" class="ear"></pre>
+  </div>
 
-    <!-- Top navigation -->
-    <div class="nav absolute top-8 left-12 right-12 flex justify-between text-[18px] text-white opacity-70">
-      <span class="tracking-wide cursor-pointer hover:text-white transition">&lt; about &gt;</span>
-      <span class="tracking-wide cursor-pointer hover:text-white transition">&lt; projects &gt;</span>
+
+<!-- Top navigation -->
+  <div class="nav absolute top-8 left-12 right-12 flex justify-between items-center text-[18px] text-white opacity-70">
+
+    <!-- Left: Projects -->
+    <span class="nav-project tracking-wide cursor-pointer transition"
+          onclick="window.location.href='projects.html'">
+      projects 
+    </span>
+
+    <!-- Right: Social Icons -->
+      <div class="flex gap-4 items-center">
+        <a href="https://github.com/addritab" target="_blank" class="icon-link">
+          <img src="github.svg" class="w-7 h-7" />
+        </a>
+        <a href="https://www.linkedin.com/in/addrita-biswas-0162a6267/" target="_blank" class="icon-link">
+          <img src="linkedin.svg" class="w-7 h-7" />
+        </a>
+      </div>
     </div>
+
+
+  </div>
+
 
     <!-- Cat wrapper (position knobs here) -->
     <div
@@ -84,10 +127,10 @@
     var dir = 'inc';
     var max = frames.length;
     var fps = 35;
-    var SCALE = 0.55;
-    var isLight = false;
+    var SCALE = 0.50; // changes anim size
+    var isLight = true;
 
-    // Subtle, sharp hover grow
+    // sharp hover on anim
     pre.addEventListener("mouseenter", () => {
       pre.style.transform = "scale(1.01)";
     });
@@ -96,14 +139,17 @@
       pre.style.transform = "scale(1)";
     });
 
-    // Click toggle dark / light
+    // dark and light mode toggle
     pre.addEventListener("click", () => {
       isLight = !isLight;
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+
       page.classList.toggle("light-mode", isLight);
       page.classList.toggle("bg-[#131313]", !isLight);
       page.classList.toggle("bg-white", isLight);
       page.classList.toggle("text-white", !isLight);
       page.classList.toggle("text-black", isLight);
+      
     });
 
     setPreCharSize();
