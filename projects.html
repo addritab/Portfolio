@@ -53,25 +53,7 @@
     &lt; return
     </a>
 
-
-    <div class="absolute top-12 inset-x-0 pointer-events-none select-none z-50">
-    <div class="max-w-6xl ml-[280px] px-2 flex">
-        <!-- Left ear -->
-        <div class="w-1/2 overflow-hidden">
-        <pre id="ear-left"
-            class="whitespace-pre font-mono text-[3.5px] leading-[2px] text-white"></pre>
-        </div>
-
-        <!-- Right ear -->
-        <div class="w-1/2 overflow-hidden text-right">
-        <pre id="ear-right"
-            class="whitespace-pre font-mono text-[3.5px] leading-[2px] text-white"></pre>
-        </div>
-    </div>
-    </div>
-        </div>
-
-  <main class="relative z-10 max-w-5xl mx-auto px-10 pt-60 pb-24 translate-x-12 text-sm">
+  <main class="relative z-10 max-w-5xl mx-auto px-10 pt-48 pb-10 translate-x-12 text-sm">
     <header class="mb-16">
       <h1 class="text-3xl font-medium">dev / design</h1>
       <p class="mt-3 opacity-60">
@@ -81,30 +63,16 @@
 
     <section id="projectsList" class="space-y-14"></section>
   </main>
-
-  <!-- Your ears file -->
-  <script src="./leftEar.js"></script>
-  <script src="./rightEar.js"></script>
-  <script>
-
-    document.getElementById("ear-left").textContent = window.EAR_LEFT || "";
-    document.getElementById("ear-right").textContent = window.EAR_RIGHT || "";
-
-    // keep ears color consistent with theme
-    const theme = localStorage.getItem("theme") || "dark";
-    if (theme === "light") {
-      document.getElementById("ear-left").classList.remove("text-white");
-      document.getElementById("ear-right").classList.remove("text-white");
-      document.getElementById("ear-left").classList.add("text-black");
-      document.getElementById("ear-right").classList.add("text-black");
-    } else {
-      document.getElementById("ear-left").classList.remove("text-black");
-      document.getElementById("ear-right").classList.remove("text-black");
-      document.getElementById("ear-left").classList.add("text-white");
-      document.getElementById("ear-right").classList.add("text-white");
-    }
-  </script>
-
+  
   <script src="projects.js"></script>
+  <div class="mt-2 text-center text-sm opacity-60">
+    inspired by 
+    <a href="https://astarryknight.github.io/"
+      target="_blank"
+      class="underline hover:opacity-100 transition">
+      astarryknight.github.io
+    </a>
+  </div>
+
 </body>
 </html>
